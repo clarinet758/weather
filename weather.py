@@ -36,10 +36,11 @@ class Weather:
         oat.tweet(message)
 
 
-place = [Weather(u'千葉県北西部', '120010'),
+place = [Weather(u'熊本県熊本', '430010'),
+         Weather(u'京都府舞鶴', '260020'),
          Weather(u'東京都23区', '130010'),
-         Weather(u'熊本県熊本', '430010'),
-         Weather(u'京都府舞鶴', '260020')]
+         Weather(u'千葉県市川', '120010'),
+         Weather(u'宮城県仙台', '040010')]
 
 
 def test(places):
