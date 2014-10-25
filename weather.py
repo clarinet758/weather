@@ -25,12 +25,14 @@ class Weather:
             dt = 1
         base = f['forecasts'][dt]
         telop = base['telop']
-        if dt:
-            tem_max = str(base['temperature']['max']['celsius'])
-            tem_min = str(base['temperature']['min']['celsius'])
-        else:
+        if base['temperature']['max']==None:
             tem_max = str(base['temperature']['max'])
+        else:
+            tem_max = str(base['temperature']['max']['celsius'])
+        if base['temperature']['min']==None:
             tem_min = str(base['temperature']['min'])
+        else:
+            tem_min = str(base['temperature']['min']['celsius'])
         message = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低が%s度くらい" % (self.day[dt], self.name, telop, tem_max, tem_min)
         message = message.encode('utf-8')
         oat.tweet(message)
