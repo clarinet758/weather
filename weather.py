@@ -7,6 +7,12 @@ import oat
 import time
 import urllib2
 
+"""
+降水確率メモ
+http://ism1000ch.hatenablog.com/entry/2014/02/04/033533
+
+"""
+
 
 class Weather:
     day = [u'今日', u'明日']
