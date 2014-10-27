@@ -39,7 +39,7 @@ class Weather:
             tem_min = str(base['temperature']['min'])
         else:
             tem_min = str(base['temperature']['min']['celsius'])
-        message = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低が%s度くらい" % (self.day[dt], self.name, telop, tem_max, tem_min)
+        message = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低が%s度くらい #%d" % (self.day[dt], self.name, telop, tem_max, tem_min, x.microsecond)
         message = message.encode('utf-8')
         oat.tweet(message)
 
