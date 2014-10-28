@@ -11,6 +11,21 @@ import urllib2
 降水確率メモ
 http://ism1000ch.hatenablog.com/entry/2014/02/04/033533
 
+chiba
+http://www.drk7.jp/weather/json/12.js
+
+tokyo
+http://www.drk7.jp/weather/json/13.js
+
+kumamoto
+http://www.drk7.jp/weather/json/43.js
+
+kyoto
+http://www.drk7.jp/weather/json/26.js
+
+miyagi
+http://www.drk7.jp/weather/json/04.js
+
 """
 
 
