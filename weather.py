@@ -11,6 +11,9 @@ import urllib2
 降水確率メモ
 http://ism1000ch.hatenablog.com/entry/2014/02/04/033533
 
+xml memo
+http://hikm.hatenablog.com/entry/20090206/1233950923
+
 chiba
 http://www.drk7.jp/weather/json/12.js
 
