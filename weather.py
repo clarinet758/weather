@@ -13,6 +13,7 @@ http://ism1000ch.hatenablog.com/entry/2014/02/04/033533
 
 xml memo
 http://hikm.hatenablog.com/entry/20090206/1233950923
+http://weather.service.msn.com/data.aspx?src=vista&weadegreetype=C&culture=ja-JP&wealocations=wc:JAXX0013
 
 chiba
 http://www.drk7.jp/weather/json/12.js
