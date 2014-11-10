@@ -8,50 +8,48 @@ import time
 import urllib2
 
 """
-降水確率メモ
-http://ism1000ch.hatenablog.com/entry/2014/02/04/033533
-
 xml memo
 http://weather.service.msn.com/data.aspx?src=vista&weadegreetype=C&culture=ja-JP&wealocations=wc:JAXX0013
-
 """
-
 
 class Weather:
     day = [u'今日', u'明日']
     key = ['temperature','low','high','skytextday','precip']
+
     def __init__(self, name, code):
         self.name = name
         self.code = code
 
 
-
     def reg(self,quo):
         sp = quo.split('=')[1]
         sp = sp.replace("\"","")
+        sp = sp.decode('utf-8')
         return sp
 
 
     def tweet(self, message):
         message = message.encode('utf-8')
         print message
+        oat.tweet(message)
 
 
     def today(self,w):
         cnt = 0
         for i in w:
-            if key[0] in i:
-                temp = reg(self,i)
+            if self.key[0] in i:
+                temp = self.reg(i)
                 cnt+=1
-            elif key[3] in i:
-                sky = reg(self,i)
+            elif self.key[3] in i:
+                sky = self.reg(i)
                 cnt+=1
-            elif key[4] in i:
-                pre = reg(self,i)
+            elif self.key[4] in i:
+                pre = self.reg(i)
                 cnt+=1
             if cnt >= 3:
-                t = u"%sの%sら辺の天候は%sで気温は%s度くらい 降水確率は%sくらい #%d" % (self.day[0], self.name, sky, temp, pre, x.microsecond)
-                tweet(self,t)
+                print self.day[0], self.name, sky, temp, pre, self.xms
+                t = u"%sの%sら辺の天候は%sで気温は%s度くらい 降水確率は%s％くらい #%d" % (self.day[0], self.name, sky, temp, pre, self.xms)
+                self.tweet(t)
                 break
 
 
@@ -61,21 +59,20 @@ class Weather:
         u = t.read()
         v = u.split(' ')
         x = datetime.datetime.now()
+        self.xms = x.microsecond
         if x.hour % 2:
-            today(self,v)
+            self.today(v)
 #            pass
         else:
-            today(self,v)
+            self.today(v)
 #        message = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低が%s度くらい #%d" % (self.day[dt], self.name, telop, tem_max, tem_min, x.microsecond)
 #        oat.tweet(message)
 
 
-place = [Weather(u'東京都','JAXX003')]
-#         Weather(u'熊本県熊本', '430010'),
-#         Weather(u'京都府舞鶴', '260020'),
-#         Weather(u'東京都23区', '130010'),
-#         Weather(u'千葉県市川', '120010'),
-#         Weather(u'宮城県仙台', '040010')]
+place = [Weather(u'熊本県', 'JAXX0043'),
+         Weather(u'京都府', 'JAXX0047'),
+         Weather(u'東京都', 'JAXX0085'),
+         Weather(u'宮城県', 'JAXX0104')]
 
 
 def test(places):
