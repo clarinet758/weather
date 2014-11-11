@@ -46,7 +46,6 @@ class Weather:
     def tomorrow(self, w):
         cnt = s = p = 0
         for i in w:
-            print i
             if self.key[1] in i:
                 low = self.reg(i)
                 if low != '':
