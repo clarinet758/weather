@@ -23,8 +23,8 @@ class Weather:
 
     def tweet(self, message):
         message = message.encode('utf-8')
-#        print message
-        oat.tweet(message)
+        print message
+#        oat.tweet(message)
 
     def today(self, w):
         cnt = 0
@@ -44,24 +44,26 @@ class Weather:
                 break
 
     def tomorrow(self, w):
-        cnt = 0
-        s = p = 0
+        cnt = s = p = 0
         for i in w:
+            print i
             if self.key[1] in i:
                 low = self.reg(i)
-                cnt += 1
+                if low != '':
+                    cnt += 1
             elif self.key[2] in i:
                 high = self.reg(i)
-                cnt += 1
+                if high != '':
+                    cnt += 1
             elif self.key[3] in i and s < 2:
                 sky = self.reg(i)
                 s += 1
-                if s >= 2:
+                if s == 2:
                     cnt += 1
             elif self.key[4] in i and p < 2:
                 pre = self.reg(i)
                 p += 1
-                if p >= 2:
+                if p == 2:
                     cnt += 1
             if cnt >= 4:
                 t = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低%s度くらい 降水確率は%s％くらい #%d" % (self.day[1], self.name, sky, high, low, pre, self.xms)
@@ -78,7 +80,8 @@ class Weather:
         if x.hour % 2:
             self.tomorrow(v)
         else:
-            self.today(v)
+            self.tomorrow(v)
+#            self.today(v)
 
 
 place = [Weather(u'熊本県', 'JAXX0043'),
