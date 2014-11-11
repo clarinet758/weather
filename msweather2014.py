@@ -23,8 +23,8 @@ class Weather:
 
     def tweet(self, message):
         message = message.encode('utf-8')
-        print message
-#        oat.tweet(message)
+#        print message
+        oat.tweet(message)
 
     def today(self, w):
         cnt = 0
@@ -80,8 +80,7 @@ class Weather:
         if x.hour % 2:
             self.tomorrow(v)
         else:
-            self.tomorrow(v)
-#            self.today(v)
+            self.today(v)
 
 
 place = [Weather(u'熊本県', 'JAXX0043'),
