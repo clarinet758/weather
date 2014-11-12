@@ -44,27 +44,21 @@ class Weather:
                 break
 
     def tomorrow(self, w):
-        cnt = s = p = 0
+        cnt = 0
         for i in w:
             if self.key[1] in i:
                 low = self.reg(i)
-                if low != '':
-                    cnt += 1
+                cnt += 1
             elif self.key[2] in i:
                 high = self.reg(i)
-                if high != '':
-                    cnt += 1
-            elif self.key[3] in i and s < 2:
+                cnt += 1
+            elif self.key[3] in i:
                 sky = self.reg(i)
-                s += 1
-                if s == 2:
-                    cnt += 1
-            elif self.key[4] in i and p < 2:
+                cnt += 1
+            elif self.key[4] in i:
                 pre = self.reg(i)
-                p += 1
-                if p == 2:
-                    cnt += 1
-            if cnt >= 4:
+                cnt += 1
+            if cnt >= 8:
                 t = u"%sの%sら辺の天候は%sで気温は最高%s度くらいで最低%s度くらい 降水確率は%s％くらい #%d" % (self.day[1], self.name, sky, high, low, pre, self.xms)
                 self.tweet(t)
                 break
