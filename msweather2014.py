@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# caution:Creating Middle
 import datetime
 import oat
 import time
