@@ -5,6 +5,7 @@ from urllib import urlencode
 from oauth2 import Client, Consumer, Token
 import tweepy
 
+#Twitter
 consumer_key = "xxxxxx"
 consumer_secret = "xxxxxxxxxxx"
 user_key = "*****-xxxxxxxxxx"
@@ -14,6 +15,9 @@ auth.set_access_token(user_key, user_secret)
 client = Client(Consumer(consumer_key, consumer_secret), Token(user_key, user_secret))
 api = tweepy.API(auth)
 ep = "https://api.twitter.com/1.1/statuses/update.json"
+
+#OpenWeatherMap
+api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 def tweet(message):
     client.request(ep, 'POST', urlencode({'status': message}))
